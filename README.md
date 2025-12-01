@@ -1,4 +1,4 @@
-File structure:
+File structure
 grocery_shop/
 │
 ├── manage.py
@@ -15,8 +15,8 @@ grocery_shop/
         ├── shopkeeper.html
         └── customer.html
 
-
 HOW TO RUN (FINAL)
+
 Step 1 — Install
 pip install django mysqlclient
 
