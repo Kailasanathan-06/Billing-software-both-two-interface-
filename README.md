@@ -1,19 +1,18 @@
 File structure
-grocery_shop/
-│
-├── manage.py
-│
-├── grocery_shop/
-│   ├── settings.py
-│   └── urls.py
-│
-└── shop/
-    ├── models.py
-    ├── views.py
-    ├── urls.py
-    └── templates/
-        ├── shopkeeper.html
-        └── customer.html
+**File Structure**  
+- grocery_shop/  
+  - manage.py  
+  - grocery_shop/  
+    - settings.py  
+    - urls.py  
+  - shop/  
+    - models.py  
+    - views.py  
+    - urls.py  
+    - templates/  
+      - shopkeeper.html  
+      - customer.html  
+
 
 HOW TO RUN (FINAL)
 
