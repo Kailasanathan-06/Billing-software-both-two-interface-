@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Page</title>
+
+<style>
+body { font-family: Arial; background:#e9f7fe; padding:20px; }
+.container { background:white; padding:20px; width:60%; margin:auto; border-radius:10px; }
+h2 { color:#0366d6; }
+table { width:100%; border-collapse: collapse; margin-top:10px; }
+th, td { border:1px solid #bbb; padding:10px; text-align:left; }
+th { background:#0366d6; color:white; }
+input { width:80px; padding:5px; }
+button { background:#0366d6; padding:10px; color:white; border:none; border-radius:5px; cursor:pointer; margin-top:10px; }
+button:hover { opacity:0.8; }
+.total { margin-top:20px; font-size:20px; color:#28a745; }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Buy Products</h2>
+
+<form method="post">{% csrf_token %}
+<table>
+<tr><th>Name</th><th>Price</th><th>Available</th><th>Buy</th></tr>
+
+{% for p in products %}
+<tr>
+  <td>{{p.name}}</td>
+  <td>₹{{p.price}}</td>
+  <td>{{p.stock}}</td>
+  <td><input type="number" name="{{p.id}}" min="0" max="{{p.stock}}"></td>
+</tr>
+{% endfor %}
+</table>
+
+<button>Place Order</button>
+</form>
+
+{% if total %}
+  <p class="total"><b>Total: ₹{{total}}</b></p>
+  <p>{{msg}}</p>
+{% endif %}
+
+</div>
+</body>
+</html>

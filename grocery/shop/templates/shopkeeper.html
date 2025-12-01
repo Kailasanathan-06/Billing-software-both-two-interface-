@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopkeeper Panel</title>
+
+<style>
+body { font-family: Arial; background: #f2f2f2; padding: 20px; }
+h2 { color: #333; }
+.container { background: white; padding:20px; border-radius:10px; width:60%; margin:auto; }
+input, button {
+    padding:10px; margin:5px; border:1px solid #888; border-radius:5px;
+}
+table { width:100%; border-collapse: collapse; margin-top:20px; }
+th, td { border:1px solid #ccc; padding:10px; text-align:left; }
+th { background:#333; color:white; }
+button { background:#28a745; color:white; cursor:pointer; }
+button:hover { opacity:0.8; }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<h2>Shopkeeper Dashboard</h2>
+
+<h3>Add Product</h3>
+<form method="post">{% csrf_token %}
+  <input name="name" placeholder="Name" required>
+  <input name="price" placeholder="Price" required>
+  <input name="stock" placeholder="Stock" required>
+  <button>Add</button>
+</form>
+
+<h3>Products</h3>
+<table>
+<tr><th>Name</th><th>Price</th><th>Stock</th></tr>
+{% for p in products %}
+<tr>
+  <td>{{p.name}}</td>
+  <td>₹{{p.price}}</td>
+  <td>{{p.stock}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>Sales</h3>
+<table>
+<tr><th>Product</th><th>Qty</th><th>Date</th></tr>
+{% for s in sales %}
+<tr>
+  <td>{{s.product.name}}</td>
+  <td>{{s.qty}}</td>
+  <td>{{s.date}}</td>
+</tr>
+{% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>
